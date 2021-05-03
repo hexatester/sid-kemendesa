@@ -1,8 +1,26 @@
 [tool.poetry]
 name = "sid-kemendesa"
 version = "0.1.0"
-description = ""
+description = "Module python untuk mencari dan melihat data desa dari sid kemendesa."
 authors = ["hexatester <hexatester@protonmail.com>"]
+readme = "README.md"
+keywords = [
+    "sid-desa",
+    "kemendesa",
+    "python-module",
+    "python-sdk",
+    "python-wrapper"
+]
+classifiers=[
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
