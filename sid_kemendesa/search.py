@@ -128,4 +128,9 @@ def search(term: str) -> List[HasilDesa]:
         params={"term": term},
     )
     assert res.ok
-    return cattr.structure(res.json(), List[HasilDesa])
+    results: List[HasilDesa] = list()
+    try:
+        results = cattr.structure(res.json(), List[HasilDesa])
+    except Exception:
+        pass
+    return results
