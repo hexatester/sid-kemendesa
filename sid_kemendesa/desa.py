@@ -15,6 +15,5 @@ class Desa:
     def deskripsi(self) -> DeskripsiDesa:
         if self._deskripsi:
             return self._deskripsi
-        res = requests.get(BASE_URL + f"/home/sdgs/{self.iddesa}")
-        assert res.ok
-        return DeskripsiDesa.from_page(res.text)
+        self._deskripsi = DeskripsiDesa.from_iddesa(self.iddesa)
+        return self._deskripsi

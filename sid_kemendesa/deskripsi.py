@@ -1,6 +1,9 @@
 import attr
+import requests
 from bs4 import BeautifulSoup
 from typing import List
+
+from sid_kemendesa.constants import BASE_URL
 
 
 @attr.dataclass(slots=True)
@@ -25,10 +28,16 @@ class DeskripsiDesa:
     wilayah_berbatasan_laut: str
 
     @classmethod
-    def from_page(cls, page: str):
+    def from_page(cls, page: str) -> "DeskripsiDesa":
         soup = BeautifulSoup(page, "html.parser")
         area = soup.find("div", class_="notika-email-post-area")
         data: List[str] = list()
         for tr in area.find_all("tr"):
             data.append(tr.contents[-1].get_text())
         return cls(*data)
+
+    @classmethod
+    def from_iddesa(cls, iddesa: str) -> "DeskripsiDesa":
+        res = requests.get(BASE_URL + f"/home/sdgs/{iddesa}")
+        assert res.ok
+        return cls.from_page(res.text)
