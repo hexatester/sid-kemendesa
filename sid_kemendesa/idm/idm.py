@@ -42,7 +42,7 @@ class IdmDesa:
         trs: List[Tag] = content.find_all("tr")
         data: List[Any] = list()
         for metadata in trs[0:9]:
-            data.append(metadata.contents[5])
+            data.append(metadata.contents[5].text)
         indikator: List[IndikatorIdm] = list()
         for iks_tr in trs[11:46]:
             indikator.append(IndikatorIdm.from_tr(iks_tr, JenisIdm.IKS))
