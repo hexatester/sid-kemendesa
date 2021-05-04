@@ -5,6 +5,7 @@ from typing import Any, List
 
 from sid_kemendesa.constants import BASE_URL
 from . import JenisIdm
+from . import StatusIdm
 from . import IndikatorIdm
 
 
@@ -15,8 +16,8 @@ class IdmDesa:
     kabupaten: str
     provinsi: str
     skor_idm: float
-    status_idm: str
-    target_status: str
+    status_idm: StatusIdm
+    target_status: StatusIdm
     skor_idm_minimal: float
     penambahan_yang_dibutuhkan: float
     indikator: List[IndikatorIdm]
@@ -28,6 +29,10 @@ class IdmDesa:
 
     def __attrs_post_init__(self) -> None:
         self.skor_idm = float(self.skor_idm)
+        if isinstance(self.status_idm, str):
+            self.status_idm = StatusIdm(self.status_idm)
+        if isinstance(self.target_status, str):
+            self.target_status = StatusIdm(self.target_status)
         self.skor_idm_minimal = float(self.skor_idm_minimal)
         self.penambahan_yang_dibutuhkan = float(self.penambahan_yang_dibutuhkan)
         self.iks_2020 = float(self.iks_2020)

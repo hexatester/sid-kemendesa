@@ -1,0 +1,9 @@
+from enum import Enum
+
+
+class StatusIdm(Enum):
+    MANDIRI = "MANDIRI"
+    MAJU = "MAJU"
+    BERKEMBANG = "BERKEMBANG"
+    TERTINGGAL = "TERTINGGAL"
+    SANGAT_TERTINGGAL = "SANGAT TERTINGGAL"
