@@ -27,6 +27,9 @@ class DeskripsiDesa:
     wilayah_terletak_di: str
     wilayah_berbatasan_laut: str
 
+    def __str__(self) -> str:
+        return self.desa
+
     @classmethod
     def from_page(cls, page: str) -> "DeskripsiDesa":
         soup = BeautifulSoup(page, "html.parser")

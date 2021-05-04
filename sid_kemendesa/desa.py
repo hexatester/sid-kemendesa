@@ -13,6 +13,9 @@ class Desa:
     _deskripsi: Optional[DeskripsiDesa] = None
     _idm: Optional[IdmDesa] = None
 
+    def __str__(self) -> str:
+        return str(self.deskripsi)
+
     @property
     def deskripsi(self) -> DeskripsiDesa:
         if self._deskripsi:
