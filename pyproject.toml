@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sid-kemendesa"
-version = "0.1.0"
+version = "0.1.1"
 description = "Module python untuk mencari dan melihat data desa dari sid kemendesa."
 authors = ["hexatester <hexatester@protonmail.com>"]
 readme = "README.md"
